@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pchome Crawler</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/index.css') }}">
+</head>
+<body>
+    <h2>
+        <img src="{{ url_for('static', filename = 'images/seagull.png') }}" width="5%">
+        {{ prod_name }}
+    </h2>
+    <p>{{ prods|length }} 個結果</p>
+    <ul class="prod_list">
+        {% for prod in prods %}
+  
+            <li>
+                <!-- <img src="{{ prod.prod_img }}" width="15%">  -->   
+                    <div>
+                        商品名稱：{{ prod.title}}　價格：{{prod.price}}
+                    </div>       
+            </li>
+            
+        {% endfor %}
+    </ul>
+    <img src="{{ url_for('static', filename = 'images/ray.png') }}" width="10%" class="bottom_img">
+    
+    <footer>
+        <small>
+            &copy; 2020 <a href="https://shopping.pchome.com.tw/">Pchome</a>
+        </small>
+    </footer>
+</body>
+</html>
